@@ -61,14 +61,14 @@ if (isset($_POST['Send'])) {
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'unknowsapps@gmail.com';                     //SMTP username
-        $mail->Password   = 'zszg mkgw dvio hdpz';                               //SMTP password
+        $mail->Username   = 'Enter_Your_Send_Email@gmail.com';                     //SMTP username
+        $mail->Password   = 'jaat jaat jaat jaat';                               //SMTP password  (1. google account 2.app password you create and apply here)
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('rishabhyadav2301@gmail.com', 'Contact Fprm');
-        $mail->addAddress('rishabhyadav2301@gmail.com', 'StartUP Innovative');     //Add a recipient
+        $mail->setFrom('(Your)From_Contact_form_Email@gmail.com', 'Contact Form');
+        $mail->addAddress('Enter_Your_Getter_Email@gmail.com', 'Enter_Your_Web_App_Name');     //Add a recipient
 
 
         //Attachments
@@ -81,9 +81,13 @@ if (isset($_POST['Send'])) {
         $mail->Body    = "Sender Name - $name <br>  Sender Email - $email <br> message - $msg";
 
         $mail->send();
-        echo '<script>alert(Message has been sent);</script>';
+        echo "<script>
+                alert('Message has been sent Successfully');
+             </script>";
     } catch (Exception $e) {
-        echo "<script>alert(Message could not be sent. Mailer Error:);</script> {$mail->ErrorInfo}";
+        echo "<script>
+                    alert('Message could not be sent. Mailer Error:); {$mail->ErrorInfo}';
+              </script>";
     }
 }
 
